@@ -48,8 +48,15 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# CSV data (optional - include if you want to track CSV files)
-# *.csv
+# Data files
+*.csv
+*.xlsx
+*.xls
+data_info.txt
+
+# Data analysis output directories
+直播数据分析结果/
+直播数据分析报告*/
 
 # Claude Code
 .claude/
