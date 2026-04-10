@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超市销售图表分析报告示例</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1F77B4 0%, #2c3e50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        h3 {
+            color: #444;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+        .chart-analysis-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        .chart-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fdfdfd;
+        }
+        .chart-placeholder {
+            background: #f8f8f8;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .chart-placeholder img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .metric-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .metric-trend {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+        }
+        .metric-comparison {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        .metric-correlation {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        .analysis-note {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .analysis-note h4 {
+            color: #ff8f00;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 超市销售图表分析报告示例</h1>
+        <p>展示图表正确嵌入HTML报告的示例</p>
+        <div class="meta">
+            <span>生成日期: 2026-04-09</span>
+            <span>分析师: Jessie</span>
+            <span>技能版本: chart-analysis-report v1.1</span>
+        </div>
+    </div>
+
+    <div class="analysis-note">
+        <h4>💡 重要说明</h4>
+        <p>此示例展示了如何正确地在HTML报告中嵌入图表图片。关键要点：</p>
+        <ol>
+            <li>使用实际的<code>&lt;img&gt;</code>标签而不是文本占位符</li>
+            <li>设置正确的相对路径指向图表图片文件</li>
+            <li>为每个图片提供有意义的alt文本描述</li>
+            <li>使用<code>max-width: 100%</code>确保图片响应式显示</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>📈 图表深度分析示例</h2>
+        <p>以下是6个不同类型图表的分析示例，每个都正确嵌入了实际图表图片。</p>
+
+        <div class="chart-analysis-container">
+            <!-- 示例1: 时间序列趋势图 -->
+            <div class="chart-item">
+                <h3>1. 时间序列趋势图 <span class="metric-badge metric-trend">趋势分析</span></h3>
+                <p><strong>图表类型</strong>: 多层折线图（销售额、利润、订单量时间趋势）</p>
+                <p><strong>关键观察</strong>: 销售额呈现明显的季度性波动，Q4为全年销售高峰，春节前后为传统淡季。</p>
+                <p><strong>业务洞察</strong>: 需建立季节性预测模型，提前进行库存和人力资源规划，把握Q4销售黄金期。</p>
+                <div class="chart-placeholder">
+                    <!-- 正确的img标签嵌入，使用相对路径 -->
+                    <img src="../supermarket_report_charts/monthly_sales_trend.png"
+                         alt="月度销售额趋势图表 - 显示2022-2023年月度销售额、利润和订单量变化趋势，包含三条折线分别表示不同指标"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/monthly_sales_trend.png</code></p>
+            </div>
+
+            <!-- 示例2: 分类对比柱状图 -->
+            <div class="chart-item">
+                <h3>2. 分类对比柱状图 <span class="metric-badge metric-comparison">对比分析</span></h3>
+                <p><strong>图表类型</strong>: 多列条形图（产品类别、地区对比）</p>
+                <p><strong>关键观察</strong>: 办公用品销量最高但利润贡献率低，家具类单值高利润贡献大。</p>
+                <p><strong>业务洞察</strong>: 产品组合需要优化，平衡流量产品和利润产品，实现整体收益最大化。</p>
+                <div class="chart-placeholder">
+                    <img src="../supermarket_report_charts/category_sales_share.png"
+                         alt="产品类别销售额份额柱状图 - 显示不同产品类别的销售额占比对比，包含多个彩色柱状"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/category_sales_share.png</code></p>
+            </div>
+
+            <!-- 示例3: 相关性分析图 -->
+            <div class="chart-item">
+                <h3>3. 相关性分析图 <span class="metric-badge metric-correlation">相关性分析</span></h3>
+                <p><strong>图表类型</strong>: 散点图（销售额与利润相关性）</p>
+                <p><strong>关键观察</strong>: 销量与销售额强相关，折扣与利润负相关，数量与利润正相关。</p>
+                <p><strong>业务洞察</strong>: 销量是核心驱动因素，但单纯追求销量可能牺牲利润，需要找到最佳平衡点。</p>
+                <div class="chart-placeholder">
+                    <img src="../supermarket_report_charts/profit_vs_sales.png"
+                         alt="利润vs销售额相关性散点图 - 显示利润与销售额的散点分布，包含回归趋势线"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/profit_vs_sales.png</code></p>
+            </div>
+
+            <!-- 示例4: 地区分布图 -->
+            <div class="chart-item">
+                <h3>4. 地区销售额分布图 <span class="metric-badge metric-comparison">分布分析</span></h3>
+                <p><strong>图表类型</strong>: Top10柱状图（各省销售额排名）</p>
+                <p><strong>关键观察</strong>: 销售额呈现长尾分布，大量小额订单构成"长尾"，少量大额订单贡献主要收入。</p>
+                <p><strong>业务洞察</strong>: 需关注大额订单的服务质量，同时优化小额订单的处理效率以控制成本。</p>
+                <div class="chart-placeholder">
+                    <img src="../supermarket_report_charts/province_sales_top10.png"
+                         alt="各省销售额Top10柱状图 - 显示销售额排名前10的省份分布，按销售额降序排列"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/province_sales_top10.png</code></p>
+            </div>
+
+            <!-- 示例5: 利润对比蝴蝶图 -->
+            <div class="chart-item">
+                <h3>5. 利润对比蝴蝶图 <span class="metric-badge metric-comparison">对比分析</span></h3>
+                <p><strong>图表类型</strong>: 蝴蝶图（不同产品线利润对比）</p>
+                <p><strong>关键观察</strong>: 家具类产品利润贡献最大，办公用品销量大但利润薄。</p>
+                <p><strong>业务洞察</strong>: 需要优化产品组合，提高高利润产品的销售比例。</p>
+                <div class="chart-placeholder">
+                    <img src="../supermarket_report_charts/profit_comparison_butterfly.png"
+                         alt="利润对比蝴蝶图 - 背靠背显示不同产品线的利润对比，左右对称分布"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/profit_comparison_butterfly.png</code></p>
+            </div>
+
+            <!-- 示例6: 折扣销售分析图 -->
+            <div class="chart-item">
+                <h3>6. 折扣与销售关系图 <span class="metric-badge metric-correlation">相关性分析</span></h3>
+                <p><strong>图表类型</strong>: 组合图（折扣率与销售额关系）</p>
+                <p><strong>关键观察</strong>: 适度折扣能提升销量，但过高折扣会损害利润。</p>
+                <p><strong>业务洞察</strong>: 需要制定科学的折扣策略，平衡销量增长和利润保护。</p>
+                <div class="chart-placeholder">
+                    <img src="../supermarket_report_charts/discount_sales_analysis.png"
+                         alt="折扣与销售关系组合图 - 显示折扣率与销售额的复合关系，包含折线和柱状元素"
+                         style="max-width: 100%;">
+                </div>
+                <p><strong>图片路径</strong>: <code>../supermarket_report_charts/discount_sales_analysis.png</code></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📋 路径结构说明</h2>
+        <p>正确设置图片路径是嵌入成功的关键。以下是示例中的目录结构：</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>文件位置</th>
+                    <th>相对路径</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML报告</td>
+                    <td><code>chart_templates_project/chart_embedding_example.html</code></td>
+                    <td>示例HTML报告文件</td>
+                </tr>
+                <tr>
+                    <td>图表图片目录</td>
+                    <td><code>supermarket_report_charts/</code></td>
+                    <td>所有图表图片存放的目录</td>
+                </tr>
+                <tr>
+                    <td>路径关系</td>
+                    <td><code>../supermarket_report_charts/</code></td>
+                    <td>从HTML文件到图片目录的相对路径</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>正确与错误示例对比</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>代码示例</th>
+                    <th>结果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>正确 ✅</strong></td>
+                    <td><code>&lt;img src="../supermarket_report_charts/monthly_sales_trend.png" alt="..." style="max-width: 100%;"&gt;</code></td>
+                    <td>图片正常显示</td>
+                </tr>
+                <tr>
+                    <td><strong>错误 ❌</strong></td>
+                    <td><code>[图表位置: 时间序列趋势图 - 显示销售额、利润、订单量的时间变化]</code></td>
+                    <td>只显示文本，无图片</td>
+                </tr>
+                <tr>
+                    <td><strong>错误 ❌</strong></td>
+                    <td><code>&lt;img src="chart_images/monthly_trend.png" alt="..."&gt;</code></td>
+                    <td>路径错误，图片无法加载</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🔧 关键代码要点</h2>
+        <h3>1. 正确的img标签结构</h3>
+        <pre><code>&lt;div class="chart-placeholder"&gt;
+    &lt;img src="../supermarket_report_charts/monthly_sales_trend.png"
+         alt="月度销售额趋势图表 - 显示2022-2023年月度销售额、利润和订单量变化趋势"
+         style="max-width: 100%; border: 1px solid #eee; border-radius: 5px; margin: 15px 0;"&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>2. 必要的HTML属性</h3>
+        <ul>
+            <li><strong>src</strong>: 图片文件的相对路径</li>
+            <li><strong>alt</strong>: 详细的描述性文本（利于无障碍访问和SEO）</li>
+            <li><strong>style</strong>: 确保图片响应式显示和适当的美观样式</li>
+        </ul>
+
+        <h3>3. 目录结构注意事项</h3>
+        <ul>
+            <li>如果HTML报告在<code>chart_analysis_reports/</code>目录，图片在<code>../supermarket_report_charts/</code></li>
+            <li>如果HTML报告在<code>supermarket_report_charts/</code>目录，图片路径为<code>./filename.png</code></li>
+            <li>根据实际目录结构调整相对路径</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>✅ 质量检查清单</h2>
+        <p>使用chart-analysis-report技能生成HTML报告后，请检查以下项目：</p>
+
+        <ul>
+            <li><input type="checkbox"> 所有<code>chart-placeholder</code> div中都包含实际的<code>&lt;img&gt;</code>标签</li>
+            <li><input type="checkbox"> 所有图片src路径正确且可访问（使用相对路径）</li>
+            <li><input type="checkbox"> 所有图片都有有意义的alt文本描述</li>
+            <li><input type="checkbox"> 图片样式确保响应式显示（<code>max-width: 100%</code>）</li>
+            <li><input type="checkbox"> 报告在浏览器中打开时所有图片正常显示</li>
+            <li><input type="checkbox"> 没有使用文本占位符如<code>[图表位置: ...]</code></li>
+        </ul>
+    </div>
+
+    <div class="header" style="margin-top: 40px; background: linear-gradient(135deg, #2c3e50 0%, #1F77B4 100%);">
+        <h3>📄 chart-analysis-report技能已更新</h3>
+        <p>技能文档已包含详细的图片嵌入指南，确保生成的HTML报告正确显示图表图片</p>
+        <p><strong>技能版本</strong>: v1.1 | <strong>更新日期</strong>: 2026-04-09</p>
+    </div>
+</body>
+</html>

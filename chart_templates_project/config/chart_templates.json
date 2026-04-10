@@ -1,0 +1,263 @@
+{
+  "heatmap": {
+    "description": "用于显示二维数据密度或相关性的热力图",
+    "recommended_size": "1000x700",
+    "aspect_ratio": 1.429,
+    "color_palette": [
+      "viridis",
+      "plasma",
+      "YlOrRd",
+      "coolwarm"
+    ],
+    "best_for": [
+      "主播活动模式",
+      "时间分布",
+      "相关性分析",
+      "聚类结果展示"
+    ],
+    "code_snippet": "\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\ndef create_heatmap(data, title='热力图', xlabel='X轴', ylabel='Y轴',\n                   cmap='YlOrRd', figsize=(14, 10)):\n    plt.figure(figsize=figsize)\n    sns.heatmap(data, cmap=cmap, linewidths=0.5,\n                cbar_kws={'label': '数值'}, annot=True, fmt='.1f')\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "主播活动热力图、相关性矩阵"
+  },
+  "line_chart": {
+    "description": "用于显示时间序列或趋势变化的折线图",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set1",
+      "Set2",
+      "tab10",
+      "Dark2"
+    ],
+    "best_for": [
+      "小时趋势",
+      "日/月变化",
+      "多指标对比",
+      "预测趋势"
+    ],
+    "code_snippet": "\ndef create_line_chart(x_data, y_data_list, labels, title='折线图',\n                      xlabel='时间', ylabel='数值', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    for i, y_data in enumerate(y_data_list):\n        plt.plot(x_data, y_data, label=labels[i], linewidth=2, marker='o')\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.legend(fontsize=10)\n    plt.grid(True, alpha=0.3)\n    return plt\n",
+    "example_use_case": "24小时成交量趋势、主播活动模式"
+  },
+  "bar_chart": {
+    "description": "用于分类数据比较的柱状图",
+    "recommended_size": "800x480",
+    "aspect_ratio": 1.667,
+    "color_palette": [
+      "Set3",
+      "Pastel1",
+      "tab20c",
+      "Accent"
+    ],
+    "best_for": [
+      "渠道表现对比",
+      "分类排名",
+      "份额分布",
+      "目标达成度"
+    ],
+    "code_snippet": "\ndef create_bar_chart(categories, values, title='柱状图',\n                     xlabel='类别', ylabel='数值', figsize=(10, 6)):\n    plt.figure(figsize=figsize)\n    colors = plt.cm.Set3(np.arange(len(categories)) / len(categories))\n    plt.bar(categories, values, color=colors, edgecolor='black')\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.xticks(rotation=45, ha='right')\n    # 添加数值标签\n    for i, v in enumerate(values):\n        plt.text(i, v, f'{v:.1f}', ha='center', va='bottom')\n    return plt\n",
+    "example_use_case": "渠道表现对比、主播排名"
+  },
+  "pie_chart": {
+    "description": "用于显示部分与整体关系的饼图",
+    "recommended_size": "600x600",
+    "aspect_ratio": 1.0,
+    "color_palette": [
+      "Set2",
+      "Pastel2",
+      "tab20b",
+      "Paired"
+    ],
+    "best_for": [
+      "时间段分布",
+      "渠道份额",
+      "分类占比",
+      "资源分配"
+    ],
+    "code_snippet": "\ndef create_pie_chart(labels, sizes, title='饼图', figsize=(8, 8)):\n    plt.figure(figsize=figsize)\n    colors = plt.cm.Set2(np.arange(len(labels)) / len(labels))\n    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%',\n            startangle=90, textprops={'fontsize': 10})\n    # 添加中心圆\n    centre_circle = plt.Circle((0,0), 0.70, fc='white')\n    fig = plt.gcf()\n    fig.gca().add_artist(centre_circle)\n    plt.title(title, fontsize=14)\n    return plt\n",
+    "example_use_case": "主播活动时间段分布"
+  },
+  "scatter_plot": {
+    "description": "用于显示两个变量关系的散点图",
+    "recommended_size": "800x640",
+    "aspect_ratio": 1.25,
+    "color_palette": [
+      "viridis",
+      "plasma",
+      "cool",
+      "rainbow"
+    ],
+    "best_for": [
+      "相关性分析",
+      "聚类可视化",
+      "异常值检测",
+      "回归分析"
+    ],
+    "code_snippet": "\ndef create_scatter_plot(x_data, y_data, colors=None, sizes=None,\n                        title='散点图', xlabel='X轴', ylabel='Y轴',\n                        figsize=(10, 8)):\n    plt.figure(figsize=figsize)\n    scatter = plt.scatter(x_data, y_data, c=colors, s=sizes,\n                         alpha=0.6, cmap='viridis')\n    if colors is not None:\n        plt.colorbar(scatter, label='颜色值')\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.grid(True, alpha=0.3)\n    return plt\n",
+    "example_use_case": "效率分析、相关性分析"
+  },
+  "multi_column_bar": {
+    "description": "用于多分类数据比较的多列条形图",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set3",
+      "tab20c",
+      "Paired",
+      "Pastel1"
+    ],
+    "best_for": [
+      "多组数据对比",
+      "分类细分比较",
+      "多维度分析"
+    ],
+    "code_snippet": "\ndef create_multi_column_bar(categories, data_dict, title='多列条形图',\n                           xlabel='类别', ylabel='数值', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    x = np.arange(len(categories))\n    width = 0.8 / len(data_dict)\n\n    for i, (group_name, values) in enumerate(data_dict.items()):\n        offset = (i - len(data_dict)/2 + 0.5) * width\n        plt.bar(x + offset, values, width, label=group_name,\n               edgecolor='black')\n\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.xticks(x, categories, rotation=45, ha='right')\n    plt.legend(fontsize=10)\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "多渠道对比、多产品线分析"
+  },
+  "stacked_bar": {
+    "description": "用于显示部分与整体关系的分层柱形图",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set2",
+      "tab20b",
+      "Pastel2",
+      "Accent"
+    ],
+    "best_for": [
+      "构成分析",
+      "份额展示",
+      "累积效果展示"
+    ],
+    "code_snippet": "\ndef create_stacked_bar(categories, data_layers, layer_names,\n                      title='分层柱形图', xlabel='类别', ylabel='数值',\n                      figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    x = np.arange(len(categories))\n    bottom = np.zeros(len(categories))\n\n    for i, (layer_name, values) in enumerate(zip(layer_names, data_layers)):\n        plt.bar(x, values, bottom=bottom, label=layer_name,\n               edgecolor='black')\n        bottom += values\n\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.xticks(x, categories, rotation=45, ha='right')\n    plt.legend(fontsize=10, loc='upper left')\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "收入构成分析、用户分层统计"
+  },
+  "butterfly_chart": {
+    "description": "用于两组数据对比的蝴蝶图（背靠背条形图）",
+    "recommended_size": "800x480",
+    "aspect_ratio": 1.667,
+    "color_palette": [
+      "Set1",
+      "Set2",
+      "tab10",
+      "Dark2"
+    ],
+    "best_for": [
+      "两组数据对比",
+      "男女比例",
+      "收支对比",
+      "AB测试结果"
+    ],
+    "code_snippet": "\ndef create_butterfly_chart(categories, left_values, right_values,\n                          left_label='左侧', right_label='右侧',\n                          title='蝴蝶图', figsize=(10, 6)):\n    plt.figure(figsize=figsize)\n    y_pos = np.arange(len(categories))\n\n    plt.barh(y_pos, left_values, color='skyblue', edgecolor='black',\n            label=left_label)\n    plt.barh(y_pos, -right_values, color='lightcoral', edgecolor='black',\n            label=right_label)\n\n    plt.title(title, fontsize=14)\n    plt.yticks(y_pos, categories)\n    plt.xlabel('数值', fontsize=12)\n    plt.legend(fontsize=10)\n\n    # 添加数值标签\n    for i, v in enumerate(left_values):\n        plt.text(v, i, f'{v}', ha='left', va='center', fontsize=9)\n    for i, v in enumerate(right_values):\n        plt.text(-v, i, f'{v}', ha='right', va='center', fontsize=9)\n\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "男女用户对比、收入支出对比"
+  },
+  "pareto_chart": {
+    "description": "用于识别主要因素的帕累托图（柱状图+累积曲线）",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set3",
+      "tab20c",
+      "Pastel1"
+    ],
+    "best_for": [
+      "问题分析",
+      "原因识别",
+      "优先级排序",
+      "质量改进"
+    ],
+    "code_snippet": "\ndef create_pareto_chart(categories, values, title='帕累托图',\n                       xlabel='类别', ylabel='频次', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n\n    # 按值排序\n    sorted_indices = np.argsort(values)[::-1]\n    sorted_categories = [categories[i] for i in sorted_indices]\n    sorted_values = [values[i] for i in sorted_indices]\n\n    # 计算累积百分比\n    cumsum = np.cumsum(sorted_values)\n    cumsum_percent = cumsum / cumsum[-1] * 100\n\n    # 创建双轴\n    fig, ax1 = plt.subplots(figsize=figsize)\n\n    # 柱状图\n    bars = ax1.bar(range(len(sorted_categories)), sorted_values,\n                  color='skyblue', edgecolor='black', alpha=0.7)\n    ax1.set_xlabel(xlabel, fontsize=12)\n    ax1.set_ylabel(ylabel, fontsize=12)\n    ax1.set_xticks(range(len(sorted_categories)))\n    ax1.set_xticklabels(sorted_categories, rotation=45, ha='right')\n\n    # 累积曲线\n    ax2 = ax1.twinx()\n    ax2.plot(range(len(sorted_categories)), cumsum_percent,\n            color='red', marker='o', linewidth=2)\n    ax2.set_ylabel('累积百分比 (%)', fontsize=12)\n    ax2.set_ylim(0, 110)\n    ax2.grid(True, alpha=0.3)\n\n    plt.title(title, fontsize=14)\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "问题原因分析、销量贡献分析"
+  },
+  "bubble_chart": {
+    "description": "用于三维数据可视化的气泡图（x,y,size）",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "viridis",
+      "plasma",
+      "cool",
+      "rainbow"
+    ],
+    "best_for": [
+      "三维数据展示",
+      "多维度分析",
+      "聚类可视化"
+    ],
+    "code_snippet": "\ndef create_bubble_chart(x_data, y_data, sizes, colors=None,\n                       title='气泡图', xlabel='X轴', ylabel='Y轴',\n                       size_label='大小', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n\n    # 标准化大小用于显示\n    scaled_sizes = (sizes - sizes.min()) / (sizes.max() - sizes.min()) * 500 + 50\n\n    scatter = plt.scatter(x_data, y_data, s=scaled_sizes, c=colors,\n                         alpha=0.6, cmap='viridis', edgecolors='black')\n\n    if colors is not None:\n        plt.colorbar(scatter, label='颜色')\n\n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.grid(True, alpha=0.3)\n\n    # 添加图例说明大小\n    import matplotlib.patches as mpatches\n    size_info = f'大小表示: {size_label}'\n    plt.text(0.02, 0.98, size_info, transform=plt.gca().transAxes,\n            fontsize=10, verticalalignment='top',\n            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))\n\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "产品分析、市场细分、绩效评估"
+  },
+  "bar_line_combo": {
+    "description": "柱状图和折线图组合图表",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set3",
+      "Set1",
+      "tab10",
+      "Dark2"
+    ],
+    "best_for": [
+      "多指标对比",
+      "实际vs目标",
+      "趋势与数量结合"
+    ],
+    "code_snippet": "\ndef create_bar_line_combo(categories, bar_values, line_values,\n                         bar_label='数量', line_label='比例',\n                         title='条形折线组合图', xlabel='类别', ylabel='数值',\n                         figsize=(12, 8)):\n    fig, ax1 = plt.subplots(figsize=figsize)\n\n    # 柱状图\n    bars = ax1.bar(categories, bar_values, color='skyblue',\n                  edgecolor='black', alpha=0.7, label=bar_label)\n    ax1.set_xlabel(xlabel, fontsize=12)\n    ax1.set_ylabel(bar_label, fontsize=12)\n    ax1.tick_params(axis='y')\n    ax1.set_xticklabels(categories, rotation=45, ha='right')\n\n    # 折线图（第二个y轴）\n    ax2 = ax1.twinx()\n    line = ax2.plot(categories, line_values, color='red', marker='o',\n                   linewidth=2, label=line_label)\n    ax2.set_ylabel(line_label, fontsize=12, color='red')\n    ax2.tick_params(axis='y', labelcolor='red')\n\n    # 合并图例\n    lines1, labels1 = ax1.get_legend_handles_labels()\n    lines2, labels2 = ax2.get_legend_handles_labels()\n    ax1.legend(lines1 + lines2, labels1 + labels2, fontsize=10)\n\n    plt.title(title, fontsize=14)\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "销量与增长率、收入与利润率"
+  },
+  "waterfall_chart": {
+    "description": "用于显示累积效果的瀑布图，展示从初始值到最终值的逐步变化",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "Set2",
+      "tab20b",
+      "Pastel2",
+      "Accent"
+    ],
+    "best_for": [
+      "财务分析",
+      "利润分解",
+      "预算变化",
+      "累积效果展示"
+    ],
+    "code_snippet": "\ndef create_waterfall_chart(categories, values, title='瀑布图',\n                          xlabel='类别', ylabel='数值', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    \n    # 计算累积值\n    cumulative = np.zeros(len(categories))\n    for i in range(len(categories)):\n        cumulative[i] = cumulative[i-1] + values[i] if i > 0 else values[i]\n    \n    # 创建条形图\n    colors = []\n    for val in values:\n        if val >= 0:\n            colors.append('lightgreen')\n        else:\n            colors.append('lightcoral')\n    \n    plt.bar(categories, values, bottom=np.append(0, cumulative[:-1]), \n           color=colors, edgecolor='black')\n    \n    # 添加连接线\n    for i in range(len(categories)-1):\n        plt.plot([i, i+1], [cumulative[i], cumulative[i]], \n                color='gray', linestyle='--', linewidth=1)\n    \n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.xticks(rotation=45, ha='right')\n    plt.grid(True, alpha=0.3)\n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "财务分析、利润分解、预算变化分析"
+  },
+  "bubble_bar_chart": {
+    "description": "气泡条形图，结合条形图和气泡图的特点，用于多维度数据展示",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "viridis",
+      "plasma",
+      "cool",
+      "rainbow"
+    ],
+    "best_for": [
+      "多维度分析",
+      "绩效评估",
+      "产品对比",
+      "市场细分"
+    ],
+    "code_snippet": "\ndef create_bubble_bar_chart(categories, bar_values, bubble_sizes, \n                           colors=None, title='气泡条形图', \n                           xlabel='类别', ylabel='数值', size_label='大小',\n                           figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    \n    # 创建条形图\n    x_pos = np.arange(len(categories))\n    bars = plt.bar(x_pos, bar_values, color='skyblue', \n                  edgecolor='black', alpha=0.7)\n    \n    # 创建气泡图（叠加在条形图上）\n    scaled_sizes = (bubble_sizes - bubble_sizes.min()) / (bubble_sizes.max() - bubble_sizes.min()) * 500 + 50\n    \n    if colors is None:\n        colors = plt.cm.viridis(np.arange(len(categories)) / len(categories))\n    \n    scatter = plt.scatter(x_pos, bar_values, s=scaled_sizes, c=colors,\n                         alpha=0.8, edgecolors='black')\n    \n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.xticks(x_pos, categories, rotation=45, ha='right')\n    plt.grid(True, alpha=0.3)\n    \n    # 添加图例说明\n    import matplotlib.patches as mpatches\n    size_info = f'气泡大小表示: {size_label}'\n    plt.text(0.02, 0.98, size_info, transform=plt.gca().transAxes,\n            fontsize=10, verticalalignment='top',\n            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))\n    \n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "产品多维度对比、绩效综合评估"
+  },
+  "bubble_chart_2": {
+    "description": "增强型气泡图，支持四维数据展示（x,y,size,color）",
+    "recommended_size": "900x600",
+    "aspect_ratio": 1.5,
+    "color_palette": [
+      "viridis",
+      "plasma",
+      "coolwarm",
+      "rainbow"
+    ],
+    "best_for": [
+      "四维数据分析",
+      "多变量关系",
+      "复杂聚类可视化",
+      "高级数据分析"
+    ],
+    "code_snippet": "\ndef create_bubble_chart_2(x_data, y_data, sizes, colors, \n                         title='增强型气泡图', xlabel='X轴', ylabel='Y轴',\n                         size_label='大小', color_label='颜色', figsize=(12, 8)):\n    plt.figure(figsize=figsize)\n    \n    # 标准化大小用于显示\n    scaled_sizes = (sizes - sizes.min()) / (sizes.max() - sizes.min()) * 500 + 50\n    \n    # 创建气泡图\n    scatter = plt.scatter(x_data, y_data, s=scaled_sizes, c=colors,\n                         alpha=0.7, cmap='viridis', edgecolors='black')\n    \n    plt.colorbar(scatter, label=color_label)\n    \n    plt.title(title, fontsize=14)\n    plt.xlabel(xlabel, fontsize=12)\n    plt.ylabel(ylabel, fontsize=12)\n    plt.grid(True, alpha=0.3)\n    \n    # 添加图例说明\n    import matplotlib.patches as mpatches\n    size_info = f'大小表示: {size_label}, 颜色表示: {color_label}'\n    plt.text(0.02, 0.98, size_info, transform=plt.gca().transAxes,\n            fontsize=10, verticalalignment='top',\n            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))\n    \n    plt.tight_layout()\n    return plt\n",
+    "example_use_case": "四维数据分析、多变量关系可视化"
+  }
+}
